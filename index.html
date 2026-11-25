@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!--
+  ==============================================================
+  HAPPY BIRTHDAY, SNIGTHA — what to edit
+  · Her name .......... Snigtha — in the <title>, the h1, the eyebrow,
+                        the letter's greeting and signature, and the closing
+  · The letter ........ search for "letter-body"
+  · Photographs ....... images/photo-1.webp … photo-4.webp
+                        (same filenames, any size — just replace them)
+  · Cake & wishes ..... the <section id="cake"> block
+  · Everything else is decoration. No build step, no server needed:
+    open index.html, or run `bun serve.ts` for a local preview.
+  ==============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday, Snigtha</title>
+<meta name="description" content="A little corner of the internet, made for Snigtha — a letter, four photographs from 2015, and a cake to blow out." />
+<meta name="theme-color" content="#150e1b" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Happy Birthday, Snigtha" />
+<meta property="og:description" content="A page built for Snigtha — a letter, four photographs, and a cake to blow out." />
+<!-- once published, point this at the full https:// address of the photo -->
+<meta property="og:image" content="images/photo-1.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28s-11-6.7-11-14a6 6 0 0 1 11-3.3A6 6 0 0 1 27 14c0 7.3-11 14-11 14z' fill='%23e9a5a5'/%3E%3C/svg%3E" />
+<link rel="preload" href="fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/outfit.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="fonts.css" />
+<link rel="stylesheet" href="styles.css" />
+<noscript><style>.gate{ display:none !important; }</style></noscript>
+</head>
+<body>
+
+<!-- ───────────────────────────── SEAL GATE ───────────────────────────── -->
+<div class="gate" id="gate">
+  <span class="gate-glow" aria-hidden="true"></span>
+  <div class="gate-inner">
+    <p class="gate-kicker">A card, sealed</p>
+    <p class="gate-name" id="gateTitle">Snigtha</p>
+    <button class="gate-seal" id="gateSeal" type="button" aria-label="Break the seal and open your card">
+      <span class="gate-seal-ring" aria-hidden="true"></span>
+      <span class="gate-seal-letter" aria-hidden="true">S</span>
+    </button>
+    <p class="gate-hint">tap the seal to open</p>
+  </div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="aurora" aria-hidden="true">
+  <span class="blob blob-a"></span>
+  <span class="blob blob-b"></span>
+  <span class="blob blob-c"></span>
+  <span class="blob blob-d"></span>
+</div>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="balloons" id="balloons" aria-hidden="true"></div>
+
+<a class="skip-link" href="#letter">Skip to the letter</a>
+
+<header class="nav">
+  <span class="mark" aria-hidden="true">S</span>
+  <span class="nav-rule" aria-hidden="true"></span>
+  <span class="nav-note">a little something, just for you</span>
+</header>
+
+<main>
+
+  <!-- ─────────────────────────── HERO ─────────────────────────── -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>For Snigtha, who made everything possible</p>
+
+      <h1 class="hero-title" data-split>
+        <span class="hero-line"><span>Happy</span></span>
+        <span class="hero-line"><span>Birthday,</span></span>
+        <span class="hero-line"><span class="accent">Snigtha</span></span>
+      </h1>
+
+      <p class="hero-sub">
+        Not a single day goes by that I don't feel lucky it was you.
+        So here's a whole page — every corner of it — just for today, just for you.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="confettiBtn" type="button">
+          <span>Pop the confetti</span>
+        </button>
+        <a class="btn btn-ghost" href="#letter">Read my letter</a>
+      </div>
+    </div>
+
+    <div class="hero-portrait" aria-hidden="true">
+      <figure class="polaroid polaroid-back">
+        <img src="images/photo-1.webp" alt="" width="1280" height="960" loading="eager" decoding="async" />
+      </figure>
+      <figure class="polaroid polaroid-front">
+        <span class="tape tape-a"></span>
+        <span class="tape tape-b"></span>
+        <img src="images/photo-2.webp" alt="" width="1280" height="960" loading="eager" decoding="async" />
+        <figcaption>February 2015</figcaption>
+      </figure>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true"><span class="scroll-line"></span><span>scroll</span></div>
+  </section>
+
+  <!-- ────────────────────────── MARQUEE ────────────────────────── -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>happy birthday</span><i>✦</i><span>you are so loved</span><i>✦</i><span>the best of us</span><i>✦</i><span>today is yours</span><i>✦</i>
+      <span>happy birthday</span><i>✦</i><span>you are so loved</span><i>✦</i><span>the best of us</span><i>✦</i><span>today is yours</span><i>✦</i>
+    </div>
+    <div class="marquee-track marquee-reverse">
+      <span>made by hand</span><i>✦</i><span>for you, always</span><i>✦</i><span>one of a kind</span><i>✦</i><span>with all my love</span><i>✦</i>
+      <span>made by hand</span><i>✦</i><span>for you, always</span><i>✦</i><span>one of a kind</span><i>✦</i><span>with all my love</span><i>✦</i>
+    </div>
+  </div>
+
+  <div class="thread" data-reveal aria-hidden="true"><span></span></div>
+
+  <!-- ─────────────────────────── LETTER ────────────────────────── -->
+  <section class="letter-section" id="letter">
+    <p class="section-num" data-reveal aria-hidden="true">01</p>
+    <h2 class="section-label" data-reveal>One letter, no card big enough</h2>
+
+    <article class="letter" data-reveal data-tilt>
+      <div class="letter-seal" aria-hidden="true"><span>S</span></div>
+
+      <p class="letter-date">For your birthday</p>
+      <h3 class="letter-greeting">Dear Snigtha,</h3>
+
+      <div class="letter-body">
+        <p>There is no card in any shop that says the right thing, so I built you a page instead. It isn't much — just light and words and a little bit of code — but every line of it is meant.</p>
+
+        <p>Thank you for every early morning, every packed lunch, every <em>“text me when you get there”</em> that you actually meant. Thank you for the patience I didn't always deserve, and for the belief you never once stopped handing out, even when I gave you no reason to keep any.</p>
+
+        <p>I found the photographs from that February the other day. You in the orange sari, the red suitcase in tow, a teddy bear the size of a house standing behind us. You look tired in it, and completely unstoppable. Most of my childhood looks like that from here, actually.</p>
+
+        <p>You turned a house into a home, and me into someone who has never had to wonder whether they're loved. That isn't a small thing. That's the whole thing.</p>
+
+        <p>I hope today is slow and warm, full of tea that's actually hot and people who adore you. You've spent years making everyone else's days better. Today the day belongs to you.</p>
+      </div>
+
+      <p class="letter-close">Happy birthday, Snigtha.<br />I love you more than this page can hold.</p>
+
+      <p class="letter-sign">All my love, always</p>
+      <p class="letter-sig" aria-hidden="true">— for Snigtha, from your child</p>
+
+      <p class="letter-ps">P.S. There's cake at the bottom of the page. I made sure.</p>
+    </article>
+
+    <p class="print-row">
+      <button class="print-btn" id="printBtn" type="button">Print / save the letter</button>
+    </p>
+  </section>
+
+  <div class="thread" data-reveal aria-hidden="true"><span></span></div>
+
+  <!-- ─────────────────────────── PHOTOS ────────────────────────── -->
+  <section class="photos-section" id="photos">
+    <div class="section-head" data-reveal>
+      <p class="section-num" aria-hidden="true">02</p>
+      <p class="photos-kicker">From the albums</p>
+      <h2 class="section-title">February 2015</h2>
+      <p class="section-sub">Four photographs from one very long trip. You carried all of it, as usual.</p>
+    </div>
+
+    <div class="photos">
+      <figure class="photo" data-reveal>
+        <button class="photo-frame" type="button" aria-label="Open photograph: the airport, February 2015">
+          <img src="images/photo-1.webp" alt="Snigtha in an orange sari holding a boarding pass, a young boy beside a red suitcase, and a giant teddy bear in the terminal behind them" width="1280" height="960" loading="lazy" decoding="async" />
+        </button>
+        <figcaption>The airport, and a bear the size of a house</figcaption>
+      </figure>
+
+      <figure class="photo" data-reveal>
+        <button class="photo-frame" type="button" aria-label="Open photograph: palm trees at midday, February 2015">
+          <img src="images/photo-2.webp" alt="Snigtha sitting on a low wall in an orange sari beside a young boy, palm trees and a bright blue sky behind them" width="1280" height="960" loading="lazy" decoding="async" />
+        </button>
+        <figcaption>Palm trees, midday, and you in orange</figcaption>
+      </figure>
+
+      <figure class="photo" data-reveal>
+        <button class="photo-frame" type="button" aria-label="Open photograph: the silver sofas, February 2015">
+          <img src="images/photo-3.webp" alt="Snigtha in a green kurta on a silver sofa, a young boy lying across the seat beside her" width="1280" height="960" loading="lazy" decoding="async" />
+        </button>
+        <figcaption>Silver sofas, somewhere in between</figcaption>
+      </figure>
+
+      <figure class="photo" data-reveal>
+        <button class="photo-frame" type="button" aria-label="Open photograph: on board the flight, February 2015">
+          <img src="images/photo-4.webp" alt="Snigtha in a green kurta in an aircraft aisle, holding a tan handbag, a young boy beside her with a SpongeBob backpack" width="1280" height="960" loading="lazy" decoding="async" />
+        </button>
+        <figcaption>On board — and a SpongeBob backpack</figcaption>
+      </figure>
+    </div>
+
+    <p class="photos-note" data-reveal>All four dated the 23rd of February, 2015 — the trip that turns up in every story.</p>
+  </section>
+
+  <div class="thread" data-reveal aria-hidden="true"><span></span></div>
+
+  <!-- ─────────────────────────── REASONS ───────────────────────── -->
+  <section class="reasons-section" id="reasons">
+    <div class="section-head" data-reveal>
+      <p class="section-num" aria-hidden="true">03</p>
+      <h2 class="section-title">Six reasons, out of a thousand</h2>
+      <p class="section-sub">I had to stop somewhere. This felt like a fair start.</p>
+    </div>
+
+    <ul class="reasons">
+      <li class="reason" data-reveal>
+        <span class="reason-num" aria-hidden="true">01</span>
+        <h3>Your warmth</h3>
+        <p>You have a way of making a room feel like home the moment you walk into it. People soften around you. I've watched it happen my whole life.</p>
+      </li>
+      <li class="reason" data-reveal>
+        <span class="reason-num" aria-hidden="true">02</span>
+        <h3>Your laugh</h3>
+        <p>It arrives about a second before the joke does, and it takes everyone else with it. It's the sound this family runs on.</p>
+      </li>
+      <li class="reason" data-reveal>
+        <span class="reason-num" aria-hidden="true">03</span>
+        <h3>Your strength</h3>
+        <p>Quiet, steady, completely unshowy. You carry more than anyone knows, and you have never once made it everybody's problem.</p>
+      </li>
+      <li class="reason" data-reveal>
+        <span class="reason-num" aria-hidden="true">04</span>
+        <h3>Your kindness</h3>
+        <p>You notice the people everyone else forgets about. You always have. It's the thing I most want to learn from you.</p>
+      </li>
+      <li class="reason" data-reveal>
+        <span class="reason-num" aria-hidden="true">05</span>
+        <h3>Your honesty</h3>
+        <p>The advice nobody else will give me, delivered with love. Usually right. Always needed. Occasionally infuriating. Thank you.</p>
+      </li>
+      <li class="reason" data-reveal>
+        <span class="reason-num" aria-hidden="true">06</span>
+        <h3>Your hugs</h3>
+        <p>Empirical proof that whatever it is, it's going to be okay. Science has not yet found the flaw in this method.</p>
+      </li>
+    </ul>
+  </section>
+
+  <div class="thread" data-reveal aria-hidden="true"><span></span></div>
+
+  <!-- ──────────────────────────── CAKE ─────────────────────────── -->
+  <section class="cake-section" id="cake">
+    <div class="section-head" data-reveal>
+      <p class="section-num" aria-hidden="true">04</p>
+      <h2 class="section-title">Make a wish</h2>
+      <p class="section-sub">Tap each flame to put it out — or let me do the honours.</p>
+    </div>
+
+    <div class="cake-stage" data-reveal>
+      <div class="cake-halo" aria-hidden="true"></div>
+      <div class="cake" id="cakeArt">
+        <span class="sparkler" id="sparkler" aria-hidden="true"></span>
+
+        <div class="candles" id="candles">
+          <button class="candle" type="button" aria-label="Blow out candle 1"><span class="wick"></span><span class="flame"></span><span class="smoke" aria-hidden="true"></span></button>
+          <button class="candle" type="button" aria-label="Blow out candle 2"><span class="wick"></span><span class="flame"></span><span class="smoke" aria-hidden="true"></span></button>
+          <button class="candle" type="button" aria-label="Blow out candle 3"><span class="wick"></span><span class="flame"></span><span class="smoke" aria-hidden="true"></span></button>
+          <button class="candle" type="button" aria-label="Blow out candle 4"><span class="wick"></span><span class="flame"></span><span class="smoke" aria-hidden="true"></span></button>
+          <button class="candle" type="button" aria-label="Blow out candle 5"><span class="wick"></span><span class="flame"></span><span class="smoke" aria-hidden="true"></span></button>
+        </div>
+
+        <div class="tier tier-top" aria-hidden="true"><span class="frost"></span></div>
+        <div class="tier tier-mid" aria-hidden="true"><span class="frost"></span></div>
+        <div class="tier tier-bottom" aria-hidden="true"><span class="frost"></span></div>
+        <div class="plate" aria-hidden="true"></div>
+        <div class="table-shadow" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" id="wishBtn" type="button">Blow them all out</button>
+    <p class="wish-msg" id="wishMsg">Wish made. I hope it's a good one.</p>
+  </section>
+
+  <div class="thread" data-reveal aria-hidden="true"><span></span></div>
+
+  <!-- ──────────────────────────── GIFT ────────────────────────── -->
+  <section class="gift-section" id="gift">
+    <div class="section-head" data-reveal>
+      <p class="section-num" aria-hidden="true">05</p>
+      <h2 class="section-title">One more thing</h2>
+      <p class="section-sub">There's a present hiding at the bottom of the page. Go on then.</p>
+    </div>
+
+    <div class="gift-stage" data-reveal>
+      <button class="gift" id="giftBox" type="button" aria-expanded="false" aria-controls="giftCard" aria-label="Open your present">
+        <span class="gift-lid" aria-hidden="true"><span class="gift-bow"></span></span>
+        <span class="gift-body" aria-hidden="true"></span>
+        <span class="gift-hint" aria-hidden="true">tap to open</span>
+      </button>
+
+      <div class="gift-card" id="giftCard" aria-hidden="true">
+        <p class="gift-kicker">Inside</p>
+        <h3>Three coupons, no expiry</h3>
+        <ul>
+          <li><span aria-hidden="true">01</span> One whole day where nobody needs anything from you.</li>
+          <li><span aria-hidden="true">02</span> A meal you didn't cook, eaten while it's still hot.</li>
+          <li><span aria-hidden="true">03</span> A phone call that starts with &ldquo;I was just thinking about you.&rdquo;</li>
+        </ul>
+        <p class="gift-fine">Redeemable forever. I'm good for it.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="thread" data-reveal aria-hidden="true"><span></span></div>
+
+  <!-- ─────────────────────────── ORACLE ───────────────────────── -->
+  <section class="oracle-section" id="oracle">
+    <div class="oracle" data-reveal>
+      <p class="oracle-kicker">The birthday oracle</p>
+      <p class="oracle-text" id="oracleText" aria-live="polite">Ask it what the year ahead holds.</p>
+      <button class="btn btn-ghost" id="oracleBtn" type="button">Ask the oracle</button>
+      <p class="oracle-hint">It only ever tells the truth, and the truth is very kind to you.</p>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────── CLOSING ───────────────────────── -->
+  <section class="closing" id="closing">
+    <div class="heart-wrap" aria-hidden="true">
+      <svg class="heart" viewBox="0 0 32 29" role="presentation">
+        <path d="M16 28.5S1.5 19.4 1.5 9.9C1.5 5.3 5.1 1.5 9.6 1.5c3 0 5.1 1.5 6.4 3.4C17.3 3 19.4 1.5 22.4 1.5c4.5 0 8.1 3.8 8.1 8.4 0 9.5-14.5 18.6-14.5 18.6z" />
+      </svg>
+    </div>
+
+    <h2 class="closing-title" data-reveal>You are so loved, Snigtha.</h2>
+    <p class="closing-sub" data-reveal>More than the cards, the cake, or this whole strange, beautiful page can say.</p>
+
+    <div class="closing-actions">
+      <button class="btn btn-ghost" id="loveBtn" type="button">Send some love</button>
+      <button class="btn btn-primary" id="fireworksBtn" type="button">Light up the sky</button>
+    </div>
+
+    <p class="closing-sig" data-reveal>Happy birthday, Snigtha. &nbsp;·&nbsp; With all my love</p>
+  </section>
+
+</main>
+
+<nav class="dock" id="dock" aria-label="Jump to a part of the page">
+  <a href="#letter">Letter</a>
+  <a href="#photos">Photos</a>
+  <a href="#cake">Cake</a>
+  <a href="#gift">Present</a>
+</nav>
+
+<footer class="foot">
+  <span>Made by hand, for you</span>
+  <span class="foot-dot" aria-hidden="true">✦</span>
+  <span>Happy birthday</span>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close photograph">&#215;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous photograph">&#8249;</button>
+  <img id="lightboxImg" alt="" />
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next photograph">&#8250;</button>
+  <p class="lightbox-cap" id="lightboxCap"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

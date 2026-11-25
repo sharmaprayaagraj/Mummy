@@ -1,0 +1,26 @@
+/* Self-hosted fonts — the page no longer needs a network connection for type.
+   Files: SIL Open Font License, via Google Fonts. */
+
+@font-face{
+  font-family:'Cormorant Garamond';
+  font-style:normal;
+  font-weight:300 600;
+  font-display:swap;
+  src:url('fonts/cormorant-garamond.woff2') format('woff2');
+}
+
+@font-face{
+  font-family:'Cormorant Garamond';
+  font-style:italic;
+  font-weight:300 600;
+  font-display:swap;
+  src:url('fonts/cormorant-garamond-italic.woff2') format('woff2');
+}
+
+@font-face{
+  font-family:'Outfit';
+  font-style:normal;
+  font-weight:200 500;
+  font-display:swap;
+  src:url('fonts/outfit.woff2') format('woff2');
+}
